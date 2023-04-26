@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard-dynamic-subset.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./neon.css">
+    <title>Omnichrome</title>
+    <style>
+        html{
+            scroll-behavior: smooth;
+            font-family: 'Pretendard';
+        }
+        body, h2, ol, li, ul{margin: 0; padding: 0;}
+        nav{height: 100px;}
+        nav .logo{font-size: 1.6em; top: 20px; left: 50px; height: 50px; line-height: 50px; font-weight: 100; width: 200px; float: left; text-align: center; letter-spacing: 0.2em;}
+        h1{justify-content: space-between; text-align: center; margin: 10%; padding-left: 24%; font-size: 5vw; font-weight: 100; margin-top: 17%; letter-spacing: 0.5em;}
+        h2{position: relative; justify-content: space-between; text-align: center; padding-top: 60%; font-size: 3vw; font-weight: 100; margin: 10%; margin-top: 17%; letter-spacing: 1.2em;}
+        h3{justify-content: space-between; text-align: center; line-height: 250px; padding-top: 40%; font-size: 3vw; font-weight: 100; margin-top: 17%; letter-spacing: 1.2em;}
+        h4{color: white; margin-left: -22.5%; position: absolute; margin-top: -180px; font-size: 0.5em; font-weight: 100; letter-spacing: 5px;}
+        h5{color: white; margin-left: 4%; position: absolute; margin-top: -260px; font-size: 0.5em; font-weight: 100; letter-spacing: 5px;}
+        a{
+            text-decoration: none;
+            display: block;
+            color: white;
+        }
+        div{
+            position: relative;
+        }
+        section{
+            width: 100%;
+            height: 2000px;
+            margin: auto;
+            margin-top: 500px;
+        }
+        span{
+            height: 50%;
+        }
+        footer{
+            padding-top: 10%;
+            height: 1000px;
+        }
+        
+        .neonCir{
+            font-size: 2rem;
+            line-height: 780%;
+            width: 15vw;
+            height: 15vw;
+            font-weight: 100;
+            display: inline-block;
+            position: absolute;
+            cursor: pointer;
+            border: var(--clr-neon) 0.075em solid;
+            padding: 0.5em 1em;
+            border-radius: 100%;
+            text-shadow: 
+                0 0 .20em #fff7,
+                0 0 .30em var(--clr-neon);
+            box-shadow:
+                inset 0 0 .5em var(--clr-neon),
+                      0 0 .5em var(--clr-neon);
+        }
+
+        .neonCir::before{
+            content: "";
+            position: absolute;
+            top: 140%;
+            left: 0;
+            filter: blur(00.5em);
+            opacity: 0.6;
+            transition: opacity 100ms linear;
+        }
+
+        .neonCir::after{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--clr-neon);
+            box-shadow: 0 0 2em var(--clr-neon);
+            border-radius: 100%;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 100ms linear;
+        }
+
+        .neonCir:hover::after{
+            opacity: 1;
+        }
+        .neonCir:hover, .neon:focus{
+            color: #001414;
+        }
+        .neonCir:hover::before{
+            opacity: 0.8;
+        }
+
+        .bgheader{position: relative;background: url('bg.jpg'); background-size: cover; background-attachment: scroll;}
+        .awing{position: sticky; top: 0; z-index: 50;}
+        .textwhite{color: white;}
+        .anchorInfo{
+            display: block;
+            bottom: 440px;
+            position: relative;
+            visibility: hidden;
+        }
+        .anchorKeyf{
+            display: block;
+            bottom: 100px;
+            position: relative;
+            visibility: hidden;
+        }
+        .anchorOrd{
+            display: block;
+            bottom: -360px;
+            position: relative;
+            visibility: hidden;
+        }
+        .arrow{
+            position: absolute;
+            padding-left: 45%;
+            z-index: 10;
+        }
+        .arrowUp{
+            position: fixed;
+            bottom: 5%;
+            right: 1%;
+            z-index: 10;
+        }
+        .wrapper{
+            position: relative;
+            width: 63%; 
+            margin: auto;
+            padding: 0px;
+        }
+        .end{
+            color: white;
+            height: 300px; 
+            text-align: center; 
+            line-height: 100px; 
+        }
+        .bgblack{background: rgba(0, 0, 0, 0.9);}
+        .thumbnails{position: relative; display: flex; flex-wrap: wrap; justify-content: space-between}
+        .col3{width: 29%; height: 29%; text-align: center;}
+        .op{margin-top: 50px; font-weight: 100; color: white; font-size: 2em;}
+        .btn{color: white; text-align: center; padding: 100px; padding-top: 150px; font-size: 2em;}
+        .visible{visibility: hidden;}
+		#image {
+            margin: 5%;
+            margin-top: 10%;
+            width: 18%;
+            position: fixed;
+            padding-top: 6%;
+			top: 0;
+			left: 10%;
+			transition: transform 0.1s;
+            z-index: 10;
+            pointer-events: none; 
+		}
+    </style>
+    <script>
+		window.addEventListener('scroll', function() {
+			var img = document.getElementById('image');
+            var  imgVis = document.getElementById('imageVis');
+            var footer = document.getElementsByTagName('footer')[0];
+            var footerTop = footer.offsetTop;
+            var scrolled = window.pageYOffset;
+            if (scrolled >= footerTop - img.clientHeight+400) {
+                img.style.transform = 0;
+                img.style.position = 'relative';
+            } else {
+                img.style.transform = 'translateX(' + scrolled/20 + '%)';
+                img.style.position = 'fixed';
+            }
+            if (scrolled >= footerTop - img.clientHeight+400) {
+                imgVis.style.visibility = 'visible';
+            } else {
+                imgVis.style.visibility = 'hidden';
+            }
+        });
+	</script>
+</head>
+<body class="bgheader"  id="main">
+    <nav class="awing">
+        <div class="logo">
+            <a href="index.html"><b>O</b>MNICHROME</a>
+        </div>
+    </nav>
+    <a href="#main">
+        <img class="arrowUp" src="arrowUp.png">
+    </a>
+    <img id="image" src="rend_o.png">
+    <header>
+        <div>
+            <h1 class="textwhite">MNICHROME</h1>
+            <a href="#info">
+                <img class="arrow" src="arrow.png">
+            </a>
+        </div>
+    </header>
+    <section>
+        <div>
+            <h2 class="textwhite">
+                <span class="anchorInfo" id="info"></span>
+                &nbsp;INF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RMATION
+                <a href="info.html">
+                    <h4 class="neonCir">DETAIL</h4>
+                </a>
+            </h2>
+            <a href="#keyf">
+                <img class="arrow" src="arrow.png">
+            </a>
+        </div>
+    </section>
+    <section>
+        <div>
+            <h3 class="textwhite">
+                <span class="anchorKeyf" id="keyf"></span>
+                KEY-<br>FUNCTI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N
+                <a href="keyfunc.html">
+                    <h5 class="neonCir">DETAIL</h5>
+                </a>
+            </h3>
+            <a href="#order">
+                <img class="arrow" src="arrow.png">
+            </a>
+        </div>
+    </section>
+    <footer>
+        <div class="wrapper">
+            <div class="thumbnails">
+                <img class="col3" src="rend_o_b.png">
+                <img class="col3" src="rend_o_c.png">
+                <img id="imageVis" class="col3" src="rend_o.png">
+            </div>
+            <div class=" thumbnails">
+                <div class="col3 op">Matte&nbsp;Black</div>
+                <div class="col3 op">Crystal&nbsp;Blue</div>
+                <div class="col3 op">Chrome&nbsp;Silver</div>
+            </div>
+        </div>
+        <div class="btn">
+            <a class="neon" href="order.html">ORDER&nbsp;NOW</a>
+        </div>
+        <span class="anchorOrd" id="order"></span>
+        <div class="end">
+            16100947 디자인학과 박지훈<br>
+            웹 인터페이스 디자인
+        </div>
+    </footer>
+</body>
+</html>

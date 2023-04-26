@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard-dynamic-subset.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./neon.css">
+    <title>Information</title>
+    <style>
+        html{
+            scroll-behavior: smooth;
+            font-family: 'Pretendard';
+        }
+        body, h1{margin: 0; padding: 0;}
+        nav{
+            position: relative;
+            height: 100px;
+        }
+        nav .logo{
+            font-size: 1.6em; 
+            top: 20px; 
+            left: 50px; 
+            height: 50px; 
+            line-height: 50px; 
+            font-weight: 100; 
+            float: left; 
+            text-align: center; 
+            letter-spacing: 0.2em;
+        }
+        img{
+            position: absolute;
+        }
+        h1{
+            color: white;
+            position: absolute;
+            top: -20px;
+            font-size: 6em;
+            margin-left: 45%;
+            letter-spacing: 0.2em;
+            opacity: 0;
+            animation: h1 1s forwards;
+            animation-delay: 0.25s;
+        }
+        h2{
+            color: white;
+            position: absolute;
+            top: 100px;
+            font-weight: 500;
+            font-size: 2em;
+            margin-left: 45%;
+            letter-spacing: 0.1em;
+            opacity: 0;
+            animation: bottomtop 1s forwards;
+            animation-delay: 1s;
+        }
+        h3{
+            color: white;
+            position: relative;
+            top: 250px;
+            font-weight: 300;
+            font-size: 1em;
+            margin-left: 45%;
+            opacity: 0;
+            animation: bottomtop 1s forwards;
+            animation-delay: 1.25s;
+        }
+        div{
+            position: relative;
+        }
+        section{
+            position: relative;
+            margin: 100px;
+            margin-left: 150px;
+        }
+        a{
+            text-decoration: none;
+            display: block;
+            color: white;
+        }
+        img{
+            border-radius: 30px;
+        }
+
+        .bgheader{background: url('bg.jpg'); background-size: cover; background-attachment: scroll;}
+        .awing{position: sticky; top: 0; z-index: 50;}
+        .name{
+            position: absolute;
+            font-size: 1.6em;
+            top: 20px; 
+            text-align: center;
+            left:0; right:0; margin-left:auto; margin-right:auto;
+            height: 50px; 
+            line-height: 50px; 
+            font-weight: 300; 
+            letter-spacing: 0.2em;
+        }
+        .textbox{
+            word-wrap: break-word;
+        }
+        .wrapper{
+            padding-top: 5%;
+            text-align: right;
+            position: relative;
+        }
+        #rend{
+            animation: leftright 1s;
+        }
+
+        @keyframes leftright{
+            from{left: -200px; opacity: 0;}
+            to{left: 0px; opacity: 1;}
+        }
+        @keyframes h1{
+            from{top: -200px; opacity: 0;}
+            to{top: 0px; opacity: 1;}
+        }
+        @keyframes bottomtop{
+            from{bottom: -200px; opacity: 0;}
+            to{bottom: 0px; opacity: 1;}
+        }
+    </style>
+</head>
+<body class="bgheader">
+    <nav class="awing">
+        <a class="name">PRODUCT&nbsp;INFORMATION</a>
+        <div class="logo">
+            <a href="index.html"><b>O</b>MNICHROME</a>
+        </div>
+    </nav>
+    <section>
+        <img id="rend" src="rend2.png">
+        <h1>OMNICHROME</h1>
+        <h2>Subtitle</h2>
+        <div class="textbox">
+            <h3>
+                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a tortor tincidunt, finibus justo et, pretium erat. Vestibulum fringilla ante posuere leo dapibus, vel sagittis nisi rutrum. Aenean mattis urna ligula, nec ullamcorper odio consequat ac. In augue nisl, suscipit a maximus vitae, tincidunt ac felis. Donec interdum, neque ac posuere auctor, sem dolor accumsan dui, et interdum est ex vel est. Pellentesque leo nulla, vulputate vel mauris ut, euismod dictum velit. Praesent efficitur dolor eleifend est venenatis rhoncus. Etiam condimentum risus quis lacus maximus finibus. Maecenas fermentum ullamcorper odio elementum blandit. Etiam nec gravida justo, nec dapibus turpis. Morbi quis eros enim.</p>
+                <p> Morbi lectus libero, ultrices sit amet tincidunt eget, finibus sit amet leo. Donec finibus vehicula magna. Praesent mattis nunc sed orci pretium porttitor. Sed eleifend nulla vel nisi tincidunt efficitur. Morbi porttitor diam lectus, non faucibus purus tincidunt vel. Curabitur non dolor id felis lobortis semper. Praesent consectetur augue vitae congue tincidunt.Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer feugiat eleifend orci. Nam ac tellus metus. Mauris sed augue et purus vehicula rutrum id vehicula dolor.</p>
+                <div class="wrapper">
+                    <a class="neon" href="index.html#info">BACK</a>
+                </div>
+            </h3>
+            
+        </div>
+    </section>
+    
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard-dynamic-subset.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./neon.css">
+    <title>Order Page</title>
+    <style>
+        html{
+            scroll-behavior: smooth;
+            font-family: 'Pretendard';
+        }
+        body, h2, ol, li, ul{margin: 0; padding: 0;}
+        nav{
+            position: relative;
+            height: 100px;
+        }
+        nav .logo{
+            font-size: 1.6em; 
+            top: 20px; 
+            left: 50px; 
+            height: 50px; 
+            line-height: 50px; 
+            font-weight: 100; 
+            float: left; 
+            text-align: center; 
+            letter-spacing: 0.2em;
+        }
+        div{
+            position: relative;
+            text-align: center;
+        }
+        a{
+            position: absolute;
+            text-decoration: none;
+            display: block;
+            color: white;
+        }
+        .bgheader{background: url('bg.jpg'); background-size: cover; background-attachment: scroll;}
+        .awing{position: sticky; top: 0; z-index: 50;}
+        .name{
+            position: absolute;
+            font-size: 1.6em;
+            top: 20px; 
+            text-align: center;
+            left:0; right:0; margin-left:auto; margin-right:auto;
+            height: 50px; 
+            line-height: 50px; 
+            font-weight: 300; 
+            letter-spacing: 0.2em;
+        }
+        .wrapper{
+            transform: translate(10%, 0%);
+            text-align: center;
+            margin: 10%;
+            margin-top: 5%;
+            width: 80%;
+            height: auto;
+        }
+        .box{
+            background: #998eff30;
+            border-radius: 50px;
+            width: 80%;
+            height: 60%;
+        }
+        .imgwrapper{
+            padding: 5%;
+            width: 50%;
+        }
+    </style>
+</head>
+<body class="bgheader">
+    <nav class="awing">
+        <a class="name">ORDER&nbsp;PAGE</a>
+        <div class="logo">
+            <a href="index.html"><b>O</b>MNICHROME</a>
+        </div>
+        
+    </nav>
+    <section class="wrapper">
+        <div class="box">
+            <div class="imgwrapper">
+                <img id="rend" src="rend2.png">
+            </div>
+        </div>
+    </section>
+</body>
+</html>

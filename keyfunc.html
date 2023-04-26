@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard-dynamic-subset.css" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./neon.css">
+    <title>Key Function</title>
+    <style>
+        :root{
+            --font-size: 1rem;
+        }
+
+        *,
+        *::after,
+        *::before{
+          box-sizing: border-box;
+        }
+        html{
+          scroll-behavior: smooth;
+          font-family: 'Pretendard';
+        }
+        body, h2, ol, li, ul{margin: 0; padding: 0;}
+        nav{
+          position: relative;
+          height: 100px;
+        }
+        section{
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+        nav .logo{
+          font-size: 1.6em; 
+          top: 20px; 
+          left: 50px; 
+          height: 50px; 
+          line-height: 50px; 
+          font-weight: 100; 
+          float: left; 
+          text-align: center; 
+          letter-spacing: 0.2em;
+        }
+        h1{
+          position: relative;
+          color: white;
+          text-align: center;
+          top: 3vw;
+          font-size: 2.2em;
+          font-weight: 600;
+          letter-spacing: 0.3em;
+          opacity: 0;
+          animation: h1 1s forwards;
+        }
+        h2{
+          color: white;
+          text-align: center;
+          position: relative;
+          top: 5vw;
+          font-weight: 300;
+          font-size: 1em;
+          opacity: 0;
+          animation: bottomtop 1s forwards;
+          animation-delay: 0.25s;
+        }
+        h3{
+          color: white; margin-left: 39.5vw; position: absolute; margin-top: 150px; font-size: 0.5em; font-weight: 100; letter-spacing: 5px;
+        }
+        div{
+            text-align: center; 
+            position: relative;
+        }
+        a{
+          position: absolute;
+          text-decoration: none;
+          display: block;
+          color: white;
+        }
+        .neon{
+          font-size: var(--font-size);
+          font-weight: 100;
+          display: inline-block;
+          position: relative;
+          cursor: pointer;
+          border: var(--clr-neon) 0.075em solid;
+          padding: 1em 1.5em;
+          border-radius: 2em;
+          text-shadow: 
+              0 0 .20em #fff7,
+              0 0 .30em var(--clr-neon);
+          box-shadow:
+              inset 0 0 .5em var(--clr-neon),
+                    0 0 .5em var(--clr-neon);
+        }
+        .neonCir{
+          position: relative;
+          font-size: 2em;
+          text-align: center;
+          line-height: 600%;
+          width: 20vw;
+          height: 20vw;
+          font-weight: 100;
+          display: inline-block;
+          cursor: pointer;
+          padding: 0.5em 1em;
+          border-radius: 100%;
+          text-shadow: 
+              0 0 .20em #fff7,
+              0 0 .30em var(--clr-neon);
+          opacity: 0;
+            animation: bottomtop 1s forwards;
+            animation-delay: 1.2s;
+        }
+
+        .neonCir::before{
+          content: "";
+          position: absolute;
+          top: 140%;
+          left: 0;
+          filter: blur(00.5em);
+          opacity: 0.6;
+          transition: opacity 100ms linear;
+        }
+
+        .neonCir::after{
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: var(--clr-neon);
+          box-shadow: 0 0 2em var(--clr-neon);
+          border-radius: 100%;
+          z-index: -1;
+          opacity: 0;
+          transition: opacity 100ms linear;
+        }
+
+        .neonCir:hover::after{
+          opacity: 1;
+        }
+        .neonCir:hover, .neon:focus{
+          color: #001414;
+        }
+        .neonCir:hover::before{
+          opacity: 0.8;
+        }
+
+        .bgheader{background: url('bg.jpg'); background-size: cover; background-attachment: scroll;}
+        .awing{position: sticky; top: 0; z-index: 50;}
+        .name{
+            position: absolute;
+            font-size: 1.6em;
+            top: 20px; 
+            text-align: center;
+            left:0; right:0; margin-left:auto; margin-right:auto;
+            height: 50px; 
+            line-height: 50px; 
+            font-weight: 300; 
+            letter-spacing: 0.2em;
+        }
+        .watch{
+            position: absolute;
+            width: 30%;
+            left: 50%;
+            bottom: 100%;
+            transform: translate(-50%, 45%);
+            pointer-events: none; 
+            opacity: 0;
+            animation: bottomtop 1s forwards;
+            animation-delay: 1s;
+        }
+        .leftarr{
+            float: left;
+            rotate: 90deg;
+        }
+        .rightarr{
+            float: right;
+            rotate: 270deg;
+        }
+        .btn{
+          color: white; 
+          text-align: center; 
+          padding: 100px; 
+          padding-top: 10%; 
+          font-size: 2em;
+          opacity: 0;
+          animation: bottomtop 1s forwards;
+          animation-delay: 0.5s;
+        }
+
+        .swiper {
+          width: 100%;
+          height: 100%;
+        }
+
+        .swiper-slide {
+          text-align: center;
+          font-size: 18px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .swiper-slide img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .swiper {
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+          color: transparent;
+          background-color: transparent;
+          border: none;
+          outline: none;
+        }
+
+        .swiper-button-prev {
+          background-image: url('./arrow.png');
+          rotate: 90deg;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+          width: 75px;
+          height: 60px;
+          transition: all 0.5s;
+        }
+
+        .swiper-button-next {
+          background-image: url('./arrow.png');
+          rotate: -90deg;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+          width: 75px;
+          height: 60px;
+          transition: all 0.5s;
+        }
+        .swiper-button-prev::after,
+        .swiper-button-next::after {
+          opacity: 1;
+        }
+
+        .swiper-button-prev:hover,
+        .swiper-button-next:hover {
+          opacity: 0.5;
+        }
+        .swiper-button-prev:hover::after,
+        .swiper-button-next:hover::after {
+          opacity: 1;
+        }
+
+        .wrapper{
+          margin-left: 5%;
+          margin-right: 5%;
+          width: 90%;
+          height: 500px;
+        }
+
+        @keyframes hovering{
+            from{opacity: 1;}
+            to{opacity: 0.6;}
+        }
+        @keyframes hoveringAfter{
+            from{opacity: 0.6;}
+            to{opacity: 1;}
+        }
+        @keyframes h1{
+            from{top: -200px; opacity: 0;}
+            to{top: 3vw; opacity: 1;}
+        }
+        @keyframes bottomtop{
+            from{bottom: -50px; opacity: 0;}
+            to{bottom: 0px; opacity: 1;}
+        }
+    </style>
+</head>
+<body class="bgheader">
+    <nav class="awing">
+        <a class="name">KEY&nbsp;FUNCTION</a>
+        <div class="logo">
+            <a href="index.html"><b>O</b>MNICHROME</a>
+        </div>
+    </nav>
+    <div class="wrapper">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <section>
+              <h1>CLIMATE&nbsp;CHANGE</h1>
+              <h2>orem ipsum dolor sit amet, consectetur adipiscing elit. Proin a tortor tincidunt, finibus justo et, pretium erat.<br> Vestibulum fringilla ante posuere leo dapibus, vel sagittis nisi rutrum. Aenean mattis urna ligula, nec ullamcorper odio consequat ac.</h2>
+              <div class="btn">
+                  <a class="neon">DETAIL</a>
+              </div>
+            </section>
+        </div>
+        <div class="swiper-slide">
+          <section>
+            <h1>DAY&nbsp;/&nbsp;NIGHT&nbsp;CONVERT</h1>
+            <h2>orem ipsum dolor sit amet, consectetur adipiscing elit. Proin a tortor tincidunt, finibus justo et, pretium erat.<br> Vestibulum fringilla ante posuere leo dapibus, vel sagittis nisi rutrum. Aenean mattis urna ligula, nec ullamcorper odio consequat ac.</h2>
+            <div class="btn">
+                <a class="neon">DETAIL</a>
+            </div>
+          </section>
+        </div>
+        <div class="swiper-slide">
+          <section>
+            <h1>TIME&nbsp;SHIFT</h1>
+            <h2>orem ipsum dolor sit amet, consectetur adipiscing elit. Proin a tortor tincidunt, finibus justo et, pretium erat.<br> Vestibulum fringilla ante posuere leo dapibus, vel sagittis nisi rutrum. Aenean mattis urna ligula, nec ullamcorper odio consequat ac.</h2>
+            <div class="btn">
+                <a class="neon">DETAIL</a>
+            </div>
+          </section>
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+  
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+  <section>
+    <a href="index.html#keyf">
+      <h3 class="neonCir">BACK</h3>
+    </a>
+  </section>
+  <div>
+      <img class="watch" src="rendBig.png">
+  </div>
+</body>
+</html>
